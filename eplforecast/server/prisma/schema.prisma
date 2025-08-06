@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id            Int   @unique
+  first_name     String  @db.VarChar(400)
+  username      String  @db.Text
+  ban           Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  predictions   Predictions[]
+  wallet        String? @db.Char(48) @unique
+  ticket        Boolean @default(false)
+  special_event  Boolean @default(false)
+  round_points   Int? @db.Integer
+  total_points   Int? @db.Integer
+  round_place    Int? @db.Integer
+  total_place    Int? @db.Integer
+}
+
+model Contests {
+  id            Int @id @default(autoincrement())
+  title         String @db.VarChar(120)
+  content       String @db.Text
+  active        Boolean
+  end_contest    DateTime
+  start_contest  DateTime
+  fixtures       Fixtures[]
+  predictions   Predictions[]
+}
+
+model Fixtures {
+  id          Int      @id @default(autoincrement())
+  Fixture_id     Int      @unique
+  status      String   @db.VarChar(255)
+  status_parse Boolean  @default(false)
+  home_name    String   @db.VarChar(255)
+  guest_name   String   @db.VarChar(255)
+  home_scores  Int? 
+  guest_scores Int?
+  date        DateTime
+  contest_id   Int? 
+  contest     Contests?  @relation(fields: [contest_id], references: [id])
+  predictions Predictions[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Predictions {
+  contest_id        Int
+  Fixture_id          Int
+  user_id           Int
+
+  home_scores       Int
+  guest_scores      Int
+  contest          Contests?  @relation(fields: [contest_id], references: [id])
+  user             Users?     @relation(fields: [user_id], references: [id])
+  Fixture            Fixtures?    @relation(fields: [Fixture_id], references: [id])
+
+  prediction_result Int?
+
+  @@id([contest_id, Fixture_id, user_id])
+}
+
