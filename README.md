@@ -7,6 +7,7 @@
 ## Idea
 
 > Idea of the project user can try to forecast the result of the matches and earn crypto coins
+> Idea of the project user can try to forecast the result of the fixtures and earn crypto coins
 
 ## Description
 
@@ -16,7 +17,7 @@
 
 ### Modules
 
-- match module - in this module we can crud matches that in active contest
+- Fixture module - in this module we can crud matches that in active contest
 - contest module - this module create contest and assign matches to this contest
 - prediction module - each user can create prediction on each match
   - to Make prediction user request need pass TG middlewares to be sure credentials are valid
