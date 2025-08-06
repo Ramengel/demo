@@ -4,9 +4,16 @@
 
 ###### This project is not in production that is why i can share with some part of code
 
-## Blockquotes
+## Idea
 
-> Idea of the project user could try to forecast the result of the fixtures and earn crypto coins
+> Idea of the project user can try to forecast the result of the fixtures and earn crypto coins
+
+## Description
+
+> This app allouds to create contest and add fixtures in contests
+> Then user can visit MY Telegram mini app and make prediction on the result of the fixture
+> in parallel, a service with a queue should work that checks the results of fixtures and calculates the results based on the predictions
+> The winner is the one who gave more accurate predictions
 
 ### Modules
 
