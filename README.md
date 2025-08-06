@@ -7,7 +7,6 @@
 ## Idea
 
 > Idea of the project user can try to forecast the result of the matches and earn crypto coins
-> Idea of the project user can try to forecast the result of the fixtures and earn crypto coins
 
 ## Description
 
