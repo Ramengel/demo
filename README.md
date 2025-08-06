@@ -10,9 +10,8 @@
 
 ## Description
 
-> This app allouds to create contest and add fixtures in contests
-> Then user can visit MY Telegram mini app and make prediction on the result of the fixture
-> in parallel, a service with a queue should work that checks the results of fixtures and calculates the results based on the predictions
+> This app allows to create contest and add football matches in contests.
+> Then user can visit MY Telegram mini app and make prediction on the result of the match.
 > The winner is the one who gave more accurate predictions
 
 ### Modules
@@ -25,9 +24,11 @@
 
 ### Packages
 
+- Typesript
 - inversifyJS / reflect-metadata - for Dependcy injection
 - class-transformer & class validator to sanitize input data as DTO objects
-- Prisma ORM
+- Prisma.io ORM
+- bull MQ
 - express.js as HTTP server
 - dotenv to read env file
 - telegram-apps - to register or authorize users
